@@ -1,0 +1,25 @@
+.text-input {
+    position: relative;
+  }
+  
+  .text-input input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+  }
+  
+  .text-input label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: transform 0.3s, font-size 0.3s;
+    transform-origin: top left;
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .text-input.focused label {
+    transform: translateY(-20px) scale(0.8);
+    font-size: 12px;
+  }
+  
