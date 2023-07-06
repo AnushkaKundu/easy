@@ -4,16 +4,18 @@ import Heading from './Heading';
 import Email from './Email';
 import ORseperator from './ORseperator';
 import ContinueWith from './ContinueWith';
-import { FaGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 export default function Login() {
     const LoginText = `Welcome Back`;
     return (
         <Card>
-            <Heading heading={LoginText}></Heading>
-            <Email></Email>
-            <ORseperator></ORseperator>
-            <ContinueWith icon={FaGoogle} method={`Gooogle`}></ContinueWith>
-            <ContinueWith icon={faFacebook} method={`Facebook`}></ContinueWith>
+            <Card.Body>
+                <Heading heading={LoginText}></Heading>
+                <Email></Email>
+                <ORseperator></ORseperator>
+                <ContinueWith icon={faGoogle} method={`Gooogle`}></ContinueWith>
+                <ContinueWith icon={faFacebook} method={`Facebook`}></ContinueWith>
+            </Card.Body>
         </Card>
     )
 }
