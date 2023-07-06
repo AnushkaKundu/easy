@@ -26,7 +26,7 @@ const TextInput = () => {
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
       />
-      <label>{isFocused ? "Placeholder" : ""}</label>
+      <label>{isFocused ? inputValue : ""}</label>
     </div>
   );
 };
