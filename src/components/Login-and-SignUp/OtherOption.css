@@ -1,0 +1,8 @@
+:root {
+    font-size: 16px;
+}
+.OtherOption {
+    padding-top: 10px;
+    font-size: var(--font-size * 0.5);
+    /* background-color: #000; */
+}

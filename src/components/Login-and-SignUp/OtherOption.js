@@ -1,8 +1,11 @@
 import React from "react";
-export default function OtherOption() {
+import './OtherOption.css';
+export default function OtherOption({otherText, OtherOption, otherLink}) {
     return (
-        <>
-            
-        </>
+        <div className="OtherOption">
+            {otherText && 
+                <span>{otherText}</span>
+            } 
+        </div>
     )
 }
