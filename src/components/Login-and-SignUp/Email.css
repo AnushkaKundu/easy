@@ -1,11 +1,16 @@
-.input-box {
+.form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-box {
     position: relative;
     margin-bottom: 20px;
   }
   
   .input-box input {
     width: 100%;
-    /* padding: 10px; */
+    padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -25,7 +30,7 @@
   .input-box label {
     position: absolute;
     top: 50%;
-    /* left: 10px; */
+    left: 10px;
     transform: translateY(-50%);
     color: #999;
     pointer-events: none;
@@ -54,4 +59,6 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
+  .input-field {
+    box-sizing: border-box;
+  }

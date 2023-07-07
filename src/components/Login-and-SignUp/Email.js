@@ -22,29 +22,31 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="input-box">
-        <input
-          type="email"
-          className="input-field"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-          placeholder=" "
-          required
-        />
-        <label htmlFor="email">Email</label>
-      </div>
-      <div className="input-box">
-        <input
-          type="password"
-          className="input-field"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder=" "
-          required
-        />
-        <label htmlFor="password">Password</label>
+      <div className="form-group">
+        <div className="input-box">
+          <input
+            type="email"
+            className="input-field"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder=" "
+            required
+          />
+          <label htmlFor="email">Email</label>
+        </div>
+        <div className="input-box">
+          <input
+            type="password"
+            className="input-field"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder=" "
+            required
+          />
+          <label htmlFor="password">Password</label>
+        </div>
       </div>
       <button type="submit" className="continue-button">Login</button>
     </form>
