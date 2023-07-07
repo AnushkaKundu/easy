@@ -1,67 +1,66 @@
 .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-box {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .input-box input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-    outline: none;
-  }
-  
-  .input-box input:focus {
-    border-color: #1ca782d3;
-  }
-  
-  .input-box input:focus-visible {
-    border-color: #1ca782d3;
-    box-shadow: 0 0 0 2px #1ca782d3;
-  }
-  
-  .input-box label {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #999;
-    pointer-events: none;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .input-box input:focus + label,
-  .input-box input:not(:placeholder-shown) + label {
-    top: -10px;
-    font-size: 12px;
-    color: #1ca782d3;
-  }
-  
-  .input-box input:focus::placeholder {
-    color: #1ca782d3; /* Updated to desired green color */
-    opacity: 1; /* Added to ensure placeholder is visible */
-  }
-  
-  .continue-button {
-    height: 40px;
-    width: 100%;
-    padding: 0 20px;
-    font-size: 16px;
-    background-color: #1ca782d3;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .input-field {
-    box-sizing: border-box;
-  }
-  
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.input-box input:focus {
+  border-color: #1ca782d3;
+}
+
+.input-box input:focus-visible {
+  border-color: #1ca782d3;
+  box-shadow: 0 0 0 2px #1ca782d3;
+}
+
+.input-box label {
+  position: absolute;
+  top: 40%;
+  /* left: 10px; */
+  transform: translateY(-40%);
+  color: #1ca782d3;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
+  color: #1ca782d3;
+}
+
+.input-box input:focus::placeholder,
+.input-box input:not(:placeholder-shown)::placeholder {
+  color: #1ca782d3; /* Set the desired green color */
+}
+
+.continue-button {
+  height: 40px;
+  width: 100%;
+  padding: 0 20px;
+  font-size: 16px;
+  background-color: #1ca782d3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-field {
+  box-sizing: border-box;
+}
