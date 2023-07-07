@@ -5,10 +5,12 @@ import Email from './Email';
 import ORseperator from './ORseperator';
 import ContinueWith from './ContinueWith';
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import './Login.css';
+
 export default function Login() {
     const LoginText = `Welcome Back`;
     return (
-        <Card>
+        <Card className="login-card">
             <Card.Body>
                 <Heading heading={LoginText}></Heading>
                 <Email></Email>

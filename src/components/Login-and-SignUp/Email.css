@@ -1,0 +1,46 @@
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    outline: none; /* Remove default focus outline */
+  }
+  
+  .input-box input:focus {
+    border-color: #1ca782d3;
+  }
+  
+  .input-box input:focus-visible {
+    /* Customize focus styling for visible focus */
+    border-color: #1ca782d3;
+    box-shadow: 0 0 0 2px #1ca782d3;
+  }
+  
+  .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .input-box input:focus + label,
+  .input-box input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #1ca782d3;
+  }
+  
+  .input-box input:focus::placeholder {
+    color: #38bd84;
+  }
+  
