@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Email.css'; // Import the CSS file for LoginForm component
+import './Email.css';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +15,6 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login or validation logic here
     console.log("Email:", email);
     console.log("Password:", password);
   };
