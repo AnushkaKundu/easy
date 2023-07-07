@@ -45,7 +45,8 @@
   }
   
   .input-box input:focus::placeholder {
-    color: #38bd84;
+    color: #1ca782d3; /* Updated to desired green color */
+    opacity: 1; /* Added to ensure placeholder is visible */
   }
   
   .continue-button {
@@ -59,6 +60,8 @@
     border-radius: 4px;
     cursor: pointer;
   }
+  
   .input-field {
     box-sizing: border-box;
   }
+  
