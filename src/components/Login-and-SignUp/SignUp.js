@@ -7,6 +7,7 @@ import Navbar from "../Navbar/Navbar";
 export default function SignUp() {
     return (
         <>
+            <Navbar/>
             <Card className="login-card">
                 <Card.Body>
                     <Heading heading="Create your account"></Heading>
