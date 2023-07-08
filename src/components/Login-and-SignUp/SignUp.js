@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import Heading from './Heading';
 import OtherOption from "./OtherOption";
 import Email from './Email';

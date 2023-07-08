@@ -5,7 +5,9 @@ export default function profile () {
     return (
         <div className="profile-card">
             <Card>
-                hi
+                <Card.Body>
+                    hi
+                </Card.Body>
             </Card>
         </div>
     );
