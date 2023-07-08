@@ -1,29 +1,96 @@
-.input-box {
+.hamburger-menu {
   position: relative;
-  margin-bottom: 20px;
 }
 
-.input-box input {
-  width: 100%;
-  padding: 10px;
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  margin-bottom: 5px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.line:last-child {
+  margin-bottom: 0;
+}
+
+.hamburger-icon.active .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-icon.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.active .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #202123;
+  transition: transform 0.3s;
+  z-index: 1;
+  transform: translateX(-100%);
+}
+
+.sidebar.show {
+  transform: translateX(0);
+  padding-top: 5%;
+  padding-left: 2%;
+}
+
+.option {
+  padding: 16px 10px;
+  margin-right: 10%;
+  border-radius: 16px;
+}
+
+.option:hover {
+  background-color: rgba(169, 169, 169, 0.319);
+}
+
+.option a {
+  color: lightgray;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  text-decoration: none;
 }
 
-.input-box label {
+.close-button {
   position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  color: #999;
-  pointer-events: none;
-  transition: all 0.3s ease-in-out;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.input-box input:focus + label,
-.input-box input:not(:placeholder-shown) + label {
-  top: -15px;
-  font-size: 12px;
-  color: #555;
+.close-button::before {
+  content: "\2716";
+  font-size: 30px; /* Adjust the font-size to make the cross thinner */
+  font-weight: 10;
+  color: #fff;
+  line-height: 1;
 }
+

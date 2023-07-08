@@ -1,8 +1,14 @@
 :root {
-    font-size: 16px;
+    --font-size: 16px;
+    --font-size-medium: 14px;
 }
 .OtherOption {
     padding-top: 10px;
-    font-size: var(--font-size * 0.5);
+    font-size: var(--font-size-medium);
+    color: grey;
+    text-align: center;
     /* background-color: #000; */
+}
+.link {
+    text-decoration: none;
 }

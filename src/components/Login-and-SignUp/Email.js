@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import './Email.css';
+import ForgotPassword from "./ForgotPasswordText";
 
-const LoginForm = () => {
+const LoginForm = ({fp}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [checked, setChecked] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -11,6 +13,10 @@ const LoginForm = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleCheckboxChange = () => {
+    setChecked(!checked);
   };
 
   const handleSubmit = (e) => {
@@ -46,8 +52,17 @@ const LoginForm = () => {
           />
           <label htmlFor="password">Password</label>
         </div>
+        {fp && <label className="checkbox">
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={handleCheckboxChange}
+        />
+        Login as admin
+        </label>}
       </div>
       <button type="submit" className="continue-button">Login</button>
+      {fp && <ForgotPassword/>}
     </form>
   );
 };

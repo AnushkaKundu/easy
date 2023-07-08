@@ -1,5 +1,6 @@
 :root {
     --font-size: 16px;
+    --text-color: black;
 }
 .form-group {
   display: flex;
@@ -64,6 +65,15 @@
   cursor: pointer;
 }
 
+.continue-button:hover {
+  background-color: #1ca782;
+}
+
 .input-field {
   box-sizing: border-box;
+}
+.checkbox {
+  font-size: 14px;
+  margin: -10px auto 10px auto;
+  color: var(--text-color);
 }
