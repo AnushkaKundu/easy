@@ -20,10 +20,10 @@ const HamburgerMenu = () => {
           <a href="#">Profile</a>
         </div>
         <div className="option">
-          <a href="#">Option 2</a>
+          <a href="#">To Do List</a>
         </div>
         <div className="option">
-          <a href="#">Option 3</a>
+          <a href="#">Chats</a>
         </div>
         <button className="close-button" onClick={handleMenuToggle}></button>
       </div>
