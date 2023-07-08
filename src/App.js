@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../src/components/Login-and-SignUp/Login";
 import SignUp from "../src/components/Login-and-SignUp/SignUp";
 import ForgotPasswordText from "../src/components/Login-and-SignUp/ForgotPasswordText";
+import UpdateProfile from "../src/components/UpdateProfile/UpdateProfile";
 import TryHowILook from './TryHowILook';
 import './App.css'
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPasswordText />} />
           <Route path="/check" element={<TryHowILook />} />
           <Route path="/update-profile" element={<UpdateProfile />} />
+          <Route path="/todo" element{<Todo />}/>
         </Routes>
       </Router>
     </div>
