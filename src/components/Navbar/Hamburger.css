@@ -1,0 +1,97 @@
+.hamburger-menu {
+    position: relative;
+  }
+  
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2;
+  }
+  
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  .line:last-child {
+    margin-bottom: 0;
+  }
+  
+  .hamburger-icon.active .line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  
+  .hamburger-icon.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-icon.active .line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #202123;
+    transition: transform 0.3s;
+    z-index: 1;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+    padding-top: 5%;
+    padding-left: 2%;
+  }
+  
+  .option {
+    padding: 16px 10px;
+    margin-right: 10%;
+    border-radius: 16px;
+  }
+  
+  .option:hover {
+    background-color: rgba(169, 169, 169, 0.319);
+  }
+  
+  .option a, .option Link {
+    color: lightgray;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close-button::before {
+    content: "\2716";
+    font-size: 30px; /* Adjust the font-size to make the cross thinner */
+    font-weight: 10;
+    color: #fff;
+    line-height: 1;
+  }
+  
+  

@@ -4,6 +4,8 @@ import Login from "../src/components/Login-and-SignUp/Login";
 import SignUp from "../src/components/Login-and-SignUp/SignUp";
 import ForgotPasswordText from "../src/components/Login-and-SignUp/ForgotPasswordText";
 import UpdateProfile from "../src/components/UpdateProfile/UpdateProfile";
+import Todo from "../src/components/ToDo/ToDo";
+import Chat from "../src/components/Chat/Chat";
 import TryHowILook from './TryHowILook';
 import './App.css'
 
@@ -18,7 +20,8 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPasswordText />} />
           <Route path="/check" element={<TryHowILook />} />
           <Route path="/update-profile" element={<UpdateProfile />} />
-          <Route path="/todo" element{<Todo />}/>
+          <Route path="/todo" element={<Todo />}/>
+          <Route path="/chat" element={<Chat/>}/>
         </Routes>
       </Router>
     </div>
