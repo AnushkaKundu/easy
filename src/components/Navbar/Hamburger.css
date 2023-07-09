@@ -48,7 +48,7 @@
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: var(--sidebar-background);
+    background-color: #202123;
     transition: transform 0.3s;
     z-index: 1;
     transform: translateX(-100%);
