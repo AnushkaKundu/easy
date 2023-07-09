@@ -1,15 +1,23 @@
 .add-todo {
     padding: 15px;
     border: solid 3px #1ca782;
-    display: flex;
-    justify-content: space-between;
+    overflow: hidden;
 }
 .add-button {
     padding: 5px;
     background-color: #1ca782;
     border-radius: 6px;
     color: white;
+    font-weight: bold;
 }
 .right {
-    align-self: flex-end;
+    float: right;
+}
+.add-symbol {
+    font-size: 24px;
+    color: #095c46;
+    font-weight: 400;
+}
+.inline {
+    display: inline;
 }
