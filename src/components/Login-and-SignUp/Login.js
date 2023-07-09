@@ -11,7 +11,7 @@ export default function Login() {
     const LoginText = `Welcome Back`;
     return (
         <>
-            <Navbar/>
+            <Navbar hb={false}/>
             <Card className="login-card">
                 <Card.Body>
                     <Heading heading={LoginText}></Heading>
