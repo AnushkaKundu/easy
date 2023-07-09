@@ -20,6 +20,7 @@
     width: 30px;
     height: 3px;
     background-color: #fff;
+    color: #fff;
     margin-bottom: 5px;
     transition: transform 0.3s, opacity 0.3s;
   }

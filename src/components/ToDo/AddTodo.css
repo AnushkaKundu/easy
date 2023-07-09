@@ -1,0 +1,15 @@
+.add-todo {
+    padding: 15px;
+    border: solid 3px #1ca782;
+    display: flex;
+    justify-content: space-between;
+}
+.add-button {
+    padding: 5px;
+    background-color: #1ca782;
+    border-radius: 6px;
+    color: white;
+}
+.right {
+    align-self: flex-end;
+}
