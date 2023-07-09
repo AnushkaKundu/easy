@@ -3,10 +3,12 @@
     --text-color: black;
     --navbar-background:  #202123;
     --sidebar-background: #202123;
+    --sidebar-links-color: lightgray;
 }
 .dark-theme {
     --background-color: #202123;
     --text-color: white;
     --navbar-background: lightgrey;
-    --sidebar-background: white;
+    --sidebar-background: lightgrey;
+    --sidebar-links-color: #202123;
 }

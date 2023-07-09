@@ -48,7 +48,6 @@
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: #202123;
     transition: transform 0.3s;
     z-index: 1;
     transform: translateX(-100%);
@@ -56,6 +55,7 @@
   
   .sidebar.show {
     transform: translateX(0);
+    background-color: var(--sidebar-background);
     padding-top: 5%;
     padding-left: 2%;
   }
