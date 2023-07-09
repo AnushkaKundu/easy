@@ -7,11 +7,16 @@ import UpdateProfile from "../src/components/UpdateProfile/UpdateProfile";
 import Todo from "../src/components/ToDo/ToDo";
 import Chat from "../src/components/Chat/Chat";
 import TryHowILook from './TryHowILook';
-import './App.css'
+import './App.css';
+import './Theme.css';
 
 function App() {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
   return (
-    <div id="App" className="center">
+    <div id="App" className="center dark-theme">
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />

@@ -21,7 +21,7 @@ class Mode extends Component {
           uncheckedIcon={false}
           checkedIcon={false}
           onColor="#1ca782d3"
-          offColor="#ccc"
+          offColor="#202123d4"
         />
       </label>
     );
