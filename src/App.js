@@ -12,21 +12,24 @@ import './Theme.css';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
+
+  const themeClass = isDarkTheme ? "dark-theme" : "light-theme";
   return (
-    <div id="App" className="center dark-theme">
+    <div id="App" className={`center ${themeClass}`}>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgotpassword" element={<ForgotPasswordText />} />
-          <Route path="/check" element={<TryHowILook />} />
-          <Route path="/update-profile" element={<UpdateProfile />} />
-          <Route path="/todo" element={<Todo />}/>
-          <Route path="/chat" element={<Chat/>}/>
+          <Route path="/" element={<Login toggleTheme={toggleTheme}/>} />
+          <Route path="/login" element={<Login toggleTheme={toggleTheme}/>} />
+          <Route path="/signup" element={<SignUp toggleTheme={toggleTheme}/>} />
+          <Route path="/forgotpassword" element={<ForgotPasswordText toggleTheme={toggleTheme}/>} />
+          <Route path="/check" element={<TryHowILook toggleTheme={toggleTheme}/>} />
+          <Route path="/update-profile" element={<UpdateProfile toggleTheme={toggleTheme}/>} />
+          <Route path="/todo" element={<Todo toggleTheme={toggleTheme}/>}/>
+          <Route path="/chat" element={<Chat toggleTheme={toggleTheme}/>}/>
         </Routes>
       </Router>
     </div>

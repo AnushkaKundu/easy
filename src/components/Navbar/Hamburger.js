@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import { FaBars } from "react-icons/fa";
 import "./Hamburger.css";
 
 const HamburgerMenu = () => {
@@ -12,9 +13,7 @@ const HamburgerMenu = () => {
   return (
     <div className="hamburger-menu">
       <button className={`hamburger-icon ${isOpen ? "active" : ""}`} onClick={handleMenuToggle}>
-        <span className="line"></span>
-        <span className="line"></span>
-        <span className="line"></span>
+        <FaBars size={12} className="hamburger-icon"/>
       </button>
       <div className={`sidebar ${isOpen ? "show" : ""}`}>
         <div className="option">

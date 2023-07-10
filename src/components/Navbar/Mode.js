@@ -10,6 +10,7 @@ class Mode extends Component {
 
   handleChange(checked) {
     this.setState({ checked });
+    this.props.toggleTheme(); // Toggle the theme in the parent component
   }
 
   render() {

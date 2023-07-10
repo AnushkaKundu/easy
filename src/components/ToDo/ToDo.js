@@ -11,10 +11,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FaBars } from 'react-icons/fa';
 
 import UnitTodo from "./UnitTodo";
-export default function ToDo() {
+export default function ToDo({toggleTheme}) {
     return(
         <>
-            <Navbar hb={true}/>
+            <Navbar hb={true} toggleTheme={toggleTheme}/>
             <div className="todo">
                 <Card>
                     <Heading heading={`To-Do`}/>

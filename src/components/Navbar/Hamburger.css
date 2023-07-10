@@ -20,6 +20,7 @@
   .line {
     width: 30px;
     height: 3px;
+    border-color: #fff;
     background-color: #fff;
     color: #fff;
     margin-bottom: 5px;
@@ -67,7 +68,7 @@
   }
   
   .option:hover {
-    background-color: rgba(169, 169, 169, 0.319);
+    background-color: rgba(169, 169, 169, 0.435);
   }
   
   .option a, .option Link {
@@ -92,8 +93,11 @@
     content: "\2716";
     font-size: 30px; /* Adjust the font-size to make the cross thinner */
     font-weight: 10;
-    color: #fff;
+    color: var(--text-color);
     line-height: 1;
   }
   
-  
+  .hamburger-icon {
+    color: white;
+    /* width: 16px; */
+  }

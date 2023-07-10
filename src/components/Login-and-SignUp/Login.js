@@ -7,11 +7,11 @@ import ContinueWith from './ContinueWith';
 import './Login.css';
 import OtherOption from "./OtherOption";
 import Navbar from "../Navbar/Navbar";
-export default function Login() {
+export default function Login({toggleTheme}) {
     const LoginText = `Welcome Back`;
     return (
         <>
-            <Navbar hb={false}/>
+            <Navbar hb={false} toggleTheme={toggleTheme}/>
             <Card className="login-card">
                 <Card.Body>
                     <Heading heading={LoginText}></Heading>
