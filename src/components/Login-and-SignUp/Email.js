@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import './Email.css';
 import ForgotPassword from "./ForgotPasswordText";
 
-const LoginForm = ({fp}) => {
+
+
+const Signup = ({ fp }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checked, setChecked] = useState(false);
@@ -53,18 +55,18 @@ const LoginForm = ({fp}) => {
           <label htmlFor="password">Password</label>
         </div>
         {fp && <label className="checkbox">
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={handleCheckboxChange}
-        />
-        Login as admin
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={handleCheckboxChange}
+          />
+          Login as admin
         </label>}
       </div>
-      <button type="submit" className="continue-button">Login</button>
-      {fp && <ForgotPassword/>}
+      <button type="submit" className="continue-button" >Login</button>
+      {fp && <ForgotPassword />}
     </form>
   );
 };
 
-export default LoginForm;
+export default Signup;
