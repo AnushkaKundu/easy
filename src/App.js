@@ -10,6 +10,7 @@ import TryHowILook from './TryHowILook';
 import './App.css';
 import './Theme.css';
 import Homepage from "./components/Homepage/Homepage";
+import Calendar from "./components/Calendar/Calendar";
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -31,6 +32,7 @@ function App() {
           <Route path="/homepage" element={<Homepage toggleTheme={toggleTheme}/>} />
           <Route path="/update-profile" element={<UpdateProfile toggleTheme={toggleTheme}/>} />
           <Route path="/todo" element={<Todo toggleTheme={toggleTheme}/>}/>
+          <Route path="/calendar" element={<Calendar toggleTheme={toggleTheme} />}/>
           <Route path="/chat" element={<Chat toggleTheme={toggleTheme}/>}/>
         </Routes>
       </Router>
