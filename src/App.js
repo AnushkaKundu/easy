@@ -9,6 +9,7 @@ import Chat from "../src/components/Chat/Chat";
 import TryHowILook from './TryHowILook';
 import './App.css';
 import './Theme.css';
+import Homepage from "./components/Homepage/Homepage";
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -27,6 +28,7 @@ function App() {
           <Route path="/signup" element={<SignUp toggleTheme={toggleTheme}/>} />
           <Route path="/forgotpassword" element={<ForgotPasswordText toggleTheme={toggleTheme}/>} />
           <Route path="/check" element={<TryHowILook toggleTheme={toggleTheme}/>} />
+          <Route path="/homepage" element={<Homepage toggleTheme={toggleTheme}/>} />
           <Route path="/update-profile" element={<UpdateProfile toggleTheme={toggleTheme}/>} />
           <Route path="/todo" element={<Todo toggleTheme={toggleTheme}/>}/>
           <Route path="/chat" element={<Chat toggleTheme={toggleTheme}/>}/>

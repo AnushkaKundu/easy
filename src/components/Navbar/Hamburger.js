@@ -13,7 +13,10 @@ const HamburgerMenu = () => {
   return (
     <div className="hamburger-menu">
       <button className={`hamburger-icon ${isOpen ? "active" : ""}`} onClick={handleMenuToggle}>
-        <FaBars size={10} className="hamburger-icon"/>
+        {/* <FaBars size={12} className="hamburger-icon"/> */}
+        <span className="line"></span>
+        <span className="line"></span>
+        <span className="line"></span>
       </button>
       <div className={`sidebar ${isOpen ? "show" : ""}`}>
         <div className="option">

@@ -20,9 +20,9 @@
   .line {
     width: 30px;
     height: 3px;
-    border-color: #fff;
-    background-color: #fff;
-    color: #fff;
+    border-color: var(--background-color);
+    background-color: var(--background-color);
+    color: var(--background-color);
     margin-bottom: 5px;
     transition: transform 0.3s, opacity 0.3s;
   }
@@ -72,7 +72,7 @@
   }
   
   .option a, .option Link {
-    color: lightgray;
+    color: var(--sidebar-links-color);
     font-size: 16px;
     text-decoration: none;
   }
@@ -93,7 +93,7 @@
     content: "\2716";
     font-size: 30px; /* Adjust the font-size to make the cross thinner */
     font-weight: 10;
-    color: var(--text-color);
+    color: var(--background-color);
     line-height: 1;
   }
   
