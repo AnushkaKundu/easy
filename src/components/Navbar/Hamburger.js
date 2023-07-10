@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { FaHome, FaUser, FaList, FaEnvelope, FaSignOutAlt } from "react-icons/fa";
+import { FaHome, FaUser, FaList, FaEnvelope, FaSignOutAlt, FaCalendarAlt } from "react-icons/fa";
 import "./Hamburger.css";
 
 const HamburgerMenu = () => {
@@ -23,24 +23,24 @@ const HamburgerMenu = () => {
       </button>
       <div className={`sidebar ${isOpen ? "show" : ""}`}>
         <div className="option">
-          <Link to="/homepage"><FaHome className="link-logo"/>Home</Link>
+          <Link to="/homepage"><FaHome className="link-logo" />Home</Link>
         </div>
         <div className="option">
-          <Link to="/update-profile"><FaUser className="link-logo"/>Profile</Link>
+          <Link to="/update-profile"><FaUser className="link-logo" />Profile</Link>
         </div>
         <div className="option">
-        <Link to="/todo"><FaList className="link-logo"/>To Do List</Link>
+          <Link to="/todo"><FaList className="link-logo" />To Do List</Link>
         </div>
         <div className="option">
-          <Link to="/chat"><FaEnvelope className="link-logo"/>Chats</Link>
+          <Link to="/chat"><FaEnvelope className="link-logo" />Chats</Link>
         </div>
         <div className="option">
-        <Link to="/calendar"><FaList className="link-logo"/>Calender</Link>
+          <Link to="/calendar"><FaCalendarAlt className="link-logo" />Calendar</Link>
         </div>
-        <hr className="division"/>
+        <hr className="division" />
         <div className="option logout-button">
           <div onClick={handleLogout}>
-            <FaSignOutAlt className="link-logo"/>Logout
+            <FaSignOutAlt className="link-logo" />Logout
           </div>
         </div>
         <button className="close-button" onClick={handleMenuToggle}></button>

@@ -1,114 +1,141 @@
 @import "../../Theme.css";
-.hamburger-menu {
-    position: relative;
-  }
-  
-  .hamburger-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 2;
-  }
-  
-  .line {
-    width: 30px;
-    height: 3px;
-    border-color: var(--background-color);
-    background-color: var(--background-color);
-    color: var(--background-color);
-    margin-bottom: 5px;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-  
-  .line:last-child {
-    margin-bottom: 0;
-  }
-  
-  .hamburger-icon.active .line:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-  }
-  
-  .hamburger-icon.active .line:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .hamburger-icon.active .line:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    transition: transform 0.3s;
-    z-index: 1;
-    transform: translateX(-100%);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sidebar.show {
-    transform: translateX(0);
-    background-color: var(--sidebar-background);
-    padding-top: 5%;
-    padding-left: 2%;
-  }
-  
-  .option {
-    padding: 16px 10px;
-    margin-right: 10%;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .option:hover {
-    background-color: rgba(169, 169, 169, 0.435);
-  }
-  
-  .option a, .option Link {
-    /* color: var(--sidebar-links-color); */
-    color: white;
-    font-size: 16px;
-    text-decoration: none;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .close-button::before {
-    content: "\2716";
-    font-size: 30px; /* Adjust the font-size to make the cross thinner */
-    font-weight: 10;
-    color: var(--background-color);
-    line-height: 1;
-  }
-  .link-logo {
-    margin: auto 15px;
-  }
-.logout-button {
-  color: white;
-  cursor:pointer;
+
+.light-theme {
+  --background-color: white;
+  --text-color: black;
+  --navbar-background: #202123;
+  --sidebar-background: #202123;
+  --sidebar-links-color: lightgray;
+  --box-shadow: 0px 4px 6px #20212385
 }
+
+.dark-theme {
+  --background-color: #202123;
+  --text-color: white;
+  --navbar-background: lightgrey;
+  --sidebar-background: lightgrey;
+  --sidebar-links-color: #202123;
+  --box-shadow: 0px 6px 6px rgba(211, 211, 211, 0.422);
+}
+
+.hamburger-menu {
+  position: relative;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  /* border-color: var(--background-color); */
+  background-color: var(--background-color);
+  color: var(--background-color);
+  border: solid 1px var(--background-color);
+  margin-bottom: 5px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.line:last-child {
+  margin-bottom: 0;
+}
+
+.hamburger-icon.active .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-icon.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.active .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  transition: transform 0.3s;
+  z-index: 1;
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.show {
+  transform: translateX(0);
+  background-color: var(--sidebar-background);
+  padding-top: 5%;
+  padding-left: 2%;
+}
+
+.option {
+  padding: 16px 10px;
+  margin-right: 10%;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.option:hover {
+  background-color: rgba(169, 169, 169, 0.435);
+}
+
+.option {
+  /* color: var(--sidebar-links-color); */
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.sidebar.show .option {
+  color: var(--background-color);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--background-color);
+}
+
+/* .close-button::before {
+  content: " ";
+  font-size: 30px;
+  font-weight: 10;
+  color: var(--background-color);
+  line-height: 1;
+} */
+
+.link-logo {
+  margin: auto 15px;
+}
+
+.logout-button {
+  cursor: pointer;
+}
+
 .division {
   width: 80%;
-  color: white;
+  border: solid 1px var(--background-color);
 }
