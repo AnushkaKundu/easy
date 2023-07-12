@@ -11,6 +11,7 @@ import ForgotPassword from "./ForgotPasswordText";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
+
 export default function Login({ toggleTheme }) {
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -33,6 +34,10 @@ export default function Login({ toggleTheme }) {
         }
 
         setLoading(false);
+    }
+
+    function loginGoogle() {
+
     }
     const LoginText = `Welcome Back`;
     return (
@@ -77,8 +82,8 @@ export default function Login({ toggleTheme }) {
                         <ForgotPassword />
                     </Form>
                     <ORseperator></ORseperator>
-                    <ContinueWith favicon="googleLogo" method={`Google`} ></ContinueWith>
-                    <ContinueWith favicon="facebookLogo" method={`Facebook`} ></ContinueWith>
+                    <ContinueWith favicon="googleLogo" method={`Google`} onsubmit={loginGoogle}></ContinueWith>
+                    {/* <ContinueWith favicon="facebookLogo" method={`Facebook`} ></ContinueWith> */}
                     <OtherOption otherText="Don't have an account?" OtherOption="Sign up" otherLink="signup" />
                 </Card.Body>
             </Card>
