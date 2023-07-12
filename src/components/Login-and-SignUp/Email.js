@@ -4,7 +4,7 @@ import ForgotPassword from "./ForgotPasswordText";
 
 
 
-const Signup = ({ fp }) => {
+const Email = ({ fp, which }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checked, setChecked] = useState(false);
@@ -63,10 +63,10 @@ const Signup = ({ fp }) => {
           Login as admin
         </label>}
       </div>
-      <button type="submit" className="continue-button" >Login</button>
+      <button type="submit" className="continue-button" >{which}</button>
       {fp && <ForgotPassword />}
     </form>
   );
 };
 
-export default Signup;
+export default Email;

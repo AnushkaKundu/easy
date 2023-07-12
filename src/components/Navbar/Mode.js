@@ -21,7 +21,7 @@ class Mode extends Component {
           checked={this.state.checked}
           uncheckedIcon={false}
           checkedIcon={false}
-          onColor="#1ca782d3"
+          onColor="#1ca782"
           offColor="#d3d3d3"
         />
       </label>
