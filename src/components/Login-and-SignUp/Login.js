@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card } from 'react-bootstrap';
+import React, { useRef, useState } from "react";
+import { Form, Card } from 'react-bootstrap';
 import Heading from './Heading';
 import ORseperator from './ORseperator';
 import ContinueWith from './ContinueWith';
@@ -8,41 +8,44 @@ import OtherOption from "./OtherOption";
 import Navbar from "../Navbar/Navbar";
 import './Email.css';
 import ForgotPassword from "./ForgotPasswordText";
-import { signInWithGoogle } from '../../config/firebase';
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Email = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [checked, setChecked] = useState(false);
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
-
     const handleCheckboxChange = () => {
-        setChecked(!checked);
-    };
+        console.log(`change`)
+    }
 
-    const handleSubmit = (e) => {
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const { login } = useAuth();
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
+    async function handleSubmit(e) {
         e.preventDefault();
-        console.log("Email:", email);
-        console.log("Password:", password);
-    };
+
+        try {
+            setError("");
+            setLoading(true);
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate("/homepage");
+        } catch {
+            setError("Failed to log in");
+        }
+
+        setLoading(false);
+    }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <div className="form-group">
                 <div className="input-box">
                     <input
                         type="email"
                         className="input-field"
                         id="email"
-                        value={email}
-                        onChange={handleEmailChange}
                         placeholder=" "
                         required
                     />
@@ -53,8 +56,6 @@ const Email = () => {
                         type="password"
                         className="input-field"
                         id="password"
-                        value={password}
-                        onChange={handlePasswordChange}
                         placeholder=" "
                         required
                     />
@@ -63,7 +64,6 @@ const Email = () => {
                 <label className="checkbox">
                     <input
                         type="checkbox"
-                        checked={checked}
                         onChange={handleCheckboxChange}
                     />
                     Login as admin
@@ -71,7 +71,7 @@ const Email = () => {
             </div>
             <button type="submit" className="continue-button" >Login</button>
             <ForgotPassword />
-        </form>
+        </Form>
     );
 };
 export default function Login({ toggleTheme }) {

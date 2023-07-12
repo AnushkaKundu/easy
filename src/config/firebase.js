@@ -1,11 +1,11 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyB1ozfmdYv_i_z1sgXiHDknQUqRA-91CUA",
     authDomain: "easy-fe8d5.firebaseapp.com",
     projectId: "easy-fe8d5",
-    databaseURL: "https://easy-fe8d5-default-rtdb.firebaseio.com",
     storageBucket: "easy-fe8d5.appspot.com",
     messagingSenderId: "432866575051",
     appId: "1:432866575051:web:0bd0e7d370098f1957514e",

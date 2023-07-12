@@ -12,6 +12,8 @@ import './Theme.css';
 import Homepage from "./components/Homepage/Homepage";
 import Calendar from "./components/Calendar/Calendar";
 
+import { AuthProvider } from "./contexts/AuthContext";
+
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -23,18 +25,20 @@ function App() {
   return (
     <div id="App" className={`center ${themeClass}`}>
       <Router>
-        <Routes>
-          <Route path="/" element={<Login toggleTheme={toggleTheme}/>} />
-          <Route path="/login" element={<Login toggleTheme={toggleTheme}/>} />
-          <Route path="/signup" element={<SignUp toggleTheme={toggleTheme}/>} />
-          <Route path="/forgotpassword" element={<ForgotPasswordText toggleTheme={toggleTheme}/>} />
-          <Route path="/check" element={<TryHowILook toggleTheme={toggleTheme}/>} />
-          <Route path="/homepage" element={<Homepage toggleTheme={toggleTheme}/>} />
-          <Route path="/update-profile" element={<UpdateProfile toggleTheme={toggleTheme}/>} />
-          <Route path="/todo" element={<Todo toggleTheme={toggleTheme}/>}/>
-          <Route path="/calendar" element={<Calendar toggleTheme={toggleTheme} />}/>
-          <Route path="/chat" element={<Chat toggleTheme={toggleTheme}/>}/>
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Login toggleTheme={toggleTheme} />} />
+            <Route path="/login" element={<Login toggleTheme={toggleTheme} />} />
+            <Route path="/signup" element={<SignUp toggleTheme={toggleTheme} />} />
+            <Route path="/forgotpassword" element={<ForgotPasswordText toggleTheme={toggleTheme} />} />
+            <Route path="/check" element={<TryHowILook toggleTheme={toggleTheme} />} />
+            <Route path="/homepage" element={<Homepage toggleTheme={toggleTheme} />} />
+            <Route path="/update-profile" element={<UpdateProfile toggleTheme={toggleTheme} />} />
+            <Route path="/todo" element={<Todo toggleTheme={toggleTheme} />} />
+            <Route path="/calendar" element={<Calendar toggleTheme={toggleTheme} />} />
+            <Route path="/chat" element={<Chat toggleTheme={toggleTheme} />} />
+          </Routes>
+        </AuthProvider>
       </Router>
     </div>
   );
