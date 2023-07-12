@@ -1,3 +1,5 @@
+@import "../../Theme.css";
+
 .login-card {
     position: relative;
     display: flex;
@@ -10,4 +12,16 @@
     box-sizing: border-box;
     /* border: solid 5px black; */
 }
-  
+
+.error-msg {
+    margin-bottom: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    border: solid 2px red;
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 0, 0, 0.139);
+    color: var(--text-color);
+}

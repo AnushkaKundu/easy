@@ -7,7 +7,7 @@ export default function ContinueWith({ favicon, method, onsubmit }) {
     if (favicon === "googleLogo") met = googleLogo;
     else if (favicon === "facebookLogo") met = facebookLogo;
     return (
-        <div className="border" onSubmit={onsubmit}>
+        <div className="border" onClick={onsubmit}>
             <img src={met} className="logoImg" />
             Continue with {method}
         </div>

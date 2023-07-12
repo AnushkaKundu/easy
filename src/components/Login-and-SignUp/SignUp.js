@@ -28,7 +28,7 @@ const SignUp = ({ toggleTheme }) => {
         }
         catch
         {
-            setError("Failed. Error.")
+            setError("User already exists")
         }
         setLoading(false);
     }
@@ -39,7 +39,11 @@ const SignUp = ({ toggleTheme }) => {
                 <Card.Body>
                     <Heading heading="Create your account"></Heading>
                     <Form onSubmit={submit}>
-                        {error && <Alert variant="danger">{error}</Alert>}
+                        {error &&
+                            <div className="error-msg">
+                                <Alert variant="danger">{error}</Alert>
+                            </div>
+                        }
                         <div className="form-group">
                             <div className="input-box">
                                 <input

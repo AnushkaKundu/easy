@@ -11,11 +11,11 @@ import ForgotPassword from "./ForgotPasswordText";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
-
 export default function Login({ toggleTheme }) {
     const emailRef = useRef();
     const passwordRef = useRef();
     const { login } = useAuth();
+    const { loginWithGoogle } = useAuth();
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -30,14 +30,19 @@ export default function Login({ toggleTheme }) {
             // console.log(emailRef.current.value, passwordRef.current.value)
             navigate("/homepage");
         } catch {
-            setError("Failed to log in");
+            setError("Incorrect username or password");
         }
 
         setLoading(false);
     }
 
     function loginGoogle() {
-
+        try {
+            loginWithGoogle()
+        } catch (error) {
+            console.log(error)
+        }
+        navigate("/homepage");
     }
     const LoginText = `Welcome Back`;
     return (
@@ -47,7 +52,11 @@ export default function Login({ toggleTheme }) {
                 <Card.Body>
                     <Heading heading={LoginText}></Heading>
                     <Form onSubmit={handleSubmit}>
-                        {error && <Alert variant="danger">{error}</Alert>}
+                        {error &&
+                            <div className="error-msg">
+                                <Alert variant="danger">{error}</Alert>
+                            </div>
+                        }
                         <div className="form-group">
                             <div className="input-box">
                                 <input
