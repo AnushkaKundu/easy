@@ -119,13 +119,13 @@
   color: var(--background-color);
 }
 
-/* .close-button::before {
+.close-button::before {
   content: " ";
   font-size: 30px;
   font-weight: 10;
   color: var(--background-color);
   line-height: 1;
-} */
+}
 
 .link-logo {
   margin: auto 15px;

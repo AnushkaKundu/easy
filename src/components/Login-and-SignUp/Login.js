@@ -26,8 +26,8 @@ export default function Login({ toggleTheme }) {
             setError("");
             setLoading(true);
             await login(emailRef.current.value, passwordRef.current.value);
-            console.log(`hi`)
-            navigate("/signup");
+            // console.log(emailRef.current.value, passwordRef.current.value)
+            navigate("/homepage");
         } catch {
             setError("Failed to log in");
         }
@@ -49,6 +49,7 @@ export default function Login({ toggleTheme }) {
                                     type="email"
                                     className="input-field"
                                     id="email"
+                                    ref={emailRef}
                                     placeholder=" "
                                     required
                                 />
@@ -59,6 +60,7 @@ export default function Login({ toggleTheme }) {
                                     type="password"
                                     className="input-field"
                                     id="password"
+                                    ref={passwordRef}
                                     placeholder=" "
                                     required
                                 />
