@@ -36,9 +36,9 @@ export default function Login({ toggleTheme }) {
         setLoading(false);
     }
 
-    function loginGoogle() {
+    async function loginGoogle() {
         try {
-            loginWithGoogle()
+            await loginWithGoogle()
         } catch (error) {
             console.log(error)
         }

@@ -36,9 +36,13 @@ export function AuthProvider({ children }) {
         return currentUser.updatePassword(password)
     }
 
-    function loginWithGoogle() {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
+    async function loginWithGoogle() {
+        try {
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     useEffect(() => {
