@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Form, Card, Alert } from 'react-bootstrap';
+import { Form, Card } from 'react-bootstrap';
 import Heading from './Heading';
 import OtherOption from "./OtherOption";
 import Navbar from "../Navbar/Navbar";
@@ -41,7 +41,7 @@ const SignUp = ({ toggleTheme }) => {
                     <Form onSubmit={submit}>
                         {error &&
                             <div className="error-msg">
-                                <Alert variant="danger">{error}</Alert>
+                                <div variant="danger">{error}</div>
                             </div>
                         }
                         <div className="form-group">

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Alert, Form, Card } from 'react-bootstrap';
+import { Form, Card } from 'react-bootstrap';
 import Heading from './Heading';
 import ORseperator from './ORseperator';
 import ContinueWith from './ContinueWith';
@@ -54,7 +54,7 @@ export default function Login({ toggleTheme }) {
                     <Form onSubmit={handleSubmit}>
                         {error &&
                             <div className="error-msg">
-                                <Alert variant="danger">{error}</Alert>
+                                <div variant="danger">{error}</div>
                             </div>
                         }
                         <div className="form-group">
