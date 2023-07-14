@@ -10,6 +10,8 @@ import './Email.css';
 import ForgotPassword from "./ForgotPasswordText";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/database';
 
 export default function Login({ toggleTheme }) {
     const emailRef = useRef();
@@ -27,7 +29,9 @@ export default function Login({ toggleTheme }) {
             setError("");
             setLoading(true);
             await login(emailRef.current.value, passwordRef.current.value);
-            // console.log(emailRef.current.value, passwordRef.current.value)
+            const currentUser = emailRef.current.value;
+            const username = getEmailUsername(currentUser);
+            await storeUsernameInDatabase(currentUser, username);
             navigate("/homepage");
         } catch {
             setError("Incorrect username or password");
@@ -36,14 +40,38 @@ export default function Login({ toggleTheme }) {
         setLoading(false);
     }
 
+    function getEmailUsername(user) {
+        return user.split("@")[0];
+    }
+
     async function loginGoogle() {
         try {
-            await loginWithGoogle()
+            await loginWithGoogle();
+            const currentUser = firebase.auth().currentUser;
+            const username = getGoogleUsername(currentUser);
+            await storeUsernameInDatabase(currentUser.email, username);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
         navigate("/homepage");
     }
+
+    function getGoogleUsername(user) {
+        if (user.displayName) {
+            return user.displayName; // Use the display name as the username
+        } else if (user.email) {
+            return user.email.split("@")[0]; // Use the email part before @ symbol as the username
+        } else {
+            return ""; // Default username
+        }
+    }
+
+    async function storeUsernameInDatabase(email, username) {
+        await firebase.database().ref("users").child(email).set({
+            username: username
+        });
+    }
+
     const LoginText = `Welcome Back`;
     return (
         <>
