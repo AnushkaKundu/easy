@@ -32,7 +32,8 @@ export default function Login({ toggleTheme }) {
             const currentUser = emailRef.current.value;
             const username = getEmailUsername(currentUser);
             try {
-                await storeEmailInDatabase(username, currentUser);
+                const encodedEmail = encodeEmail(currentUser);
+                await storeEmailInDatabase(username, encodedEmail);
             } catch {
                 console.log("Error saving in database.");
             }
@@ -54,7 +55,8 @@ export default function Login({ toggleTheme }) {
             const currentUser = firebase.auth().currentUser;
             const username = getGoogleUsername(currentUser);
             try {
-                await storeEmailInDatabase(username, currentUser.email);
+                const encodedEmail = encodeEmail(currentUser.email);
+                await storeEmailInDatabase(username, encodedEmail);
             } catch {
                 console.log("Error saving in database.");
             }
@@ -74,10 +76,20 @@ export default function Login({ toggleTheme }) {
         }
     }
 
-    async function storeEmailInDatabase(username, email) {
-        await firebase.database().ref("users").child(username).set({
-            email: email
+    async function storeEmailInDatabase(username, encodedEmail) {
+        await firebase.database().ref("users").child(encodedEmail).set({
+            username: username
         });
+    }
+
+    // Function to encode the email using Base64 encoding
+    function encodeEmail(email) {
+        return btoa(email);
+    }
+
+    // Function to decode the email from Base64 encoding
+    function decodeEmail(encodedEmail) {
+        return atob(encodedEmail);
     }
 
     const LoginText = `Welcome Back`;
