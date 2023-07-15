@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
-// const database = firebase.database("https://easy-fe8d5-default-rtdb.firebaseio.com");
 
 export default function Login({ toggleTheme }) {
     const emailRef = useRef();
@@ -33,9 +32,9 @@ export default function Login({ toggleTheme }) {
             const currentUser = emailRef.current.value;
             const username = getEmailUsername(currentUser);
             try {
-                await storeUsernameInDatabase(currentUser, username);
+                await storeEmailInDatabase(username, currentUser);
             } catch {
-                console.log("Error saving in database.")
+                console.log("Error saving in database.");
             }
             navigate("/homepage");
         } catch {
@@ -54,7 +53,11 @@ export default function Login({ toggleTheme }) {
             await loginWithGoogle();
             const currentUser = firebase.auth().currentUser;
             const username = getGoogleUsername(currentUser);
-            await storeUsernameInDatabase(currentUser.email, username);
+            try {
+                await storeEmailInDatabase(username, currentUser.email);
+            } catch {
+                console.log("Error saving in database.");
+            }
         } catch (error) {
             console.log(error);
         }
@@ -71,9 +74,9 @@ export default function Login({ toggleTheme }) {
         }
     }
 
-    async function storeUsernameInDatabase(email, username) {
-        await firebase.database().ref("users").child(email).set({
-            username: username
+    async function storeEmailInDatabase(username, email) {
+        await firebase.database().ref("users").child(username).set({
+            email: email
         });
     }
 
