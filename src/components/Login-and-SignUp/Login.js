@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
+// const database = firebase.database("https://easy-fe8d5-default-rtdb.firebaseio.com");
 
 export default function Login({ toggleTheme }) {
     const emailRef = useRef();
@@ -31,7 +32,11 @@ export default function Login({ toggleTheme }) {
             await login(emailRef.current.value, passwordRef.current.value);
             const currentUser = emailRef.current.value;
             const username = getEmailUsername(currentUser);
-            await storeUsernameInDatabase(currentUser, username);
+            try {
+                await storeUsernameInDatabase(currentUser, username);
+            } catch {
+                console.log("Error saving in database.")
+            }
             navigate("/homepage");
         } catch {
             setError("Incorrect username or password");
