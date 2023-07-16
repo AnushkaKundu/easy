@@ -1,14 +1,28 @@
 import React from "react";
-import {Card} from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import "./UpdateProfile.css";
-export default function profile () {
+import Navbar from "../Navbar/Navbar";
+import UnitInfo from "./UnitInfo";
+export default function profile({ toggleTheme }) {
     return (
-        <div className="profile-card">
-            <Card>
-                <Card.Body>
-                    hi
-                </Card.Body>
-            </Card>
-        </div>
+        <>
+            <Navbar hb={true} toggleTheme={toggleTheme} />
+            <div className="container">
+                <div className="top">
+                    <div className="profile-picture"></div>
+                    <div className="username">Welcome, </div>
+                </div>
+                <div className="basic-info">
+                    <UnitInfo key="Profile picture" value="" />
+                    <UnitInfo key="Username" value="" />
+                    <UnitInfo key="Birthdate" value="" />
+                    <UnitInfo key="Gender" value="" />
+                </div>
+                <div className="contact-info">
+                    <UnitInfo key="Email" value="" />
+                    <UnitInfo key="Phone" value="" />
+                </div>
+            </div>
+        </>
     );
 }

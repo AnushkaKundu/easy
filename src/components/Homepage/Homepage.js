@@ -46,7 +46,7 @@ export default function Homepage({ toggleTheme }) {
 
     return (
         <>
-            <Navbar hb={true} toggleTheme={toggleTheme} />
+            <Navbar hb={true} toggleTheme={toggleTheme} encodedEmail={encodedEmail} />
             <div className="homepage">
                 <div className="hi"></div>
                 <Heading heading={`Good ${timeOfDay} ${username}`} />

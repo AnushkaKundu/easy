@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaList, FaEnvelope, FaSignOutAlt, FaCalendarAlt } from "react-icons/fa";
 import "./Hamburger.css";
 import { useAuth } from "../../contexts/AuthContext";
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ encodedEmail }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { logout } = useAuth();
@@ -31,20 +31,20 @@ const HamburgerMenu = () => {
         <span className="line"></span>
       </button>
       <div className={`sidebar ${isOpen ? "show" : ""}`}>
-        <div className="option">
-          <Link to="/homepage"><FaHome className="link-logo" />Home</Link>
+        <div className="option" onClick={() => navigate("/homepage", { state: { encodedEmail: encodedEmail } })}>
+          <div><FaHome className="link-logo" />Home</div>
         </div>
-        <div className="option">
-          <Link to="/update-profile"><FaUser className="link-logo" />Profile</Link>
+        <div className="option" onClick={() => navigate("/update-profile", { state: { encodedEmail: encodedEmail } })}>
+          <div><FaUser className="link-logo" />Profile</div>
         </div>
-        <div className="option">
-          <Link to="/todo"><FaList className="link-logo" />To Do List</Link>
+        <div className="option" onClick={() => navigate("/todo", { state: { encodedEmail: encodedEmail } })}>
+          <div><FaList className="link-logo" />To Do List</div>
         </div>
-        <div className="option">
-          <Link to="/chat"><FaEnvelope className="link-logo" />Chats</Link>
+        <div className="option" onClick={() => navigate("/chat", { state: { encodedEmail: encodedEmail } })}>
+          <div><FaEnvelope className="link-logo" />Chats</div>
         </div>
-        <div className="option">
-          <Link to="/calendar"><FaCalendarAlt className="link-logo" />Calendar</Link>
+        <div className="option" onClick={() => navigate("/calendar", { state: { encodedEmail: encodedEmail } })}>
+          <div><FaCalendarAlt className="link-logo" />Calendar</div>
         </div>
         <hr className="division" />
         <div className="option logout-button">
