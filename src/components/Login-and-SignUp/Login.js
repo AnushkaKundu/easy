@@ -37,7 +37,7 @@ export default function Login({ toggleTheme }) {
             } catch {
                 console.log("Error saving in database.");
             }
-            navigate("/homepage", { state: { encodedEmail } });
+            navigate("/homepage", { state: { encodedEmail: encodeEmail(currentUser) } });
         } catch {
             setError("Incorrect username or password");
         }
