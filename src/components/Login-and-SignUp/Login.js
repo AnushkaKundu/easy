@@ -37,7 +37,7 @@ export default function Login({ toggleTheme }) {
             } catch {
                 console.log("Error saving in database.");
             }
-            navigate("/homepage");
+            navigate("/homepage", { state: { username, encodedEmail } }); // Pass username and encodedEmail as route parameters
         } catch {
             setError("Incorrect username or password");
         }
@@ -60,10 +60,10 @@ export default function Login({ toggleTheme }) {
             } catch {
                 console.log("Error saving in database.");
             }
+            navigate("/homepage", { state: { username, encodedEmail } }); // Pass username and encodedEmail as route parameters
         } catch (error) {
             console.log(error);
         }
-        navigate("/homepage");
     }
 
     function getGoogleUsername(user) {
@@ -77,9 +77,13 @@ export default function Login({ toggleTheme }) {
     }
 
     async function storeEmailInDatabase(username, encodedEmail) {
-        await firebase.database().ref("users").child(encodedEmail).set({
-            username: username
-        });
+        const databaseRef = firebase.database().ref("users");
+        const snapshot = await databaseRef.child(encodedEmail).once("value");
+        if (!snapshot.exists()) {
+            await databaseRef.child(encodedEmail).set({
+                username: username
+            });
+        }
     }
 
     // Function to encode the email using Base64 encoding
@@ -93,9 +97,12 @@ export default function Login({ toggleTheme }) {
     }
 
     const LoginText = `Welcome Back`;
+    const encodedEmail = navigate?.location?.state?.encodedEmail; // Define encodedEmail here
+    const username = navigate?.location?.state?.username; // Define username here
+
     return (
         <>
-            <Navbar hb={false} toggleTheme={toggleTheme} />
+            <Navbar hb={false} toggleTheme={toggleTheme} encodedEmail={encodedEmail} />
             <Card className="login-card">
                 <Card.Body>
                     <Heading heading={LoginText}></Heading>
