@@ -37,7 +37,7 @@ export default function Login({ toggleTheme }) {
             } catch {
                 console.log("Error saving in database.");
             }
-            navigate("/homepage", { state: { username, encodedEmail } }); // Pass username and encodedEmail as route parameters
+            navigate("/homepage", { state: { encodedEmail } });
         } catch {
             setError("Incorrect username or password");
         }
@@ -60,7 +60,7 @@ export default function Login({ toggleTheme }) {
             } catch {
                 console.log("Error saving in database.");
             }
-            navigate("/homepage", { state: { username, encodedEmail } }); // Pass username and encodedEmail as route parameters
+            navigate("/homepage", { state: { encodedEmail } });
         } catch (error) {
             console.log(error);
         }
@@ -68,11 +68,11 @@ export default function Login({ toggleTheme }) {
 
     function getGoogleUsername(user) {
         if (user.displayName) {
-            return user.displayName; // Use the display name as the username
+            return user.displayName;
         } else if (user.email) {
-            return user.email.split("@")[0]; // Use the email part before @ symbol as the username
+            return user.email.split("@")[0];
         } else {
-            return ""; // Default username
+            return "";
         }
     }
 

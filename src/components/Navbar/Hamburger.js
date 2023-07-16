@@ -1,18 +1,27 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaHome, FaUser, FaList, FaEnvelope, FaSignOutAlt, FaCalendarAlt } from "react-icons/fa";
 import "./Hamburger.css";
+import { useAuth } from "../../contexts/AuthContext";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const handleMenuToggle = () => {
     setIsOpen(!isOpen);
   };
-  const handleLogout = () => {
-    // Perform logout logic here
-    // Redirect to the login page or any other desired action
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login"); // Redirect to the login page after logout
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div className="hamburger-menu">
       <button className={`hamburger-icon ${isOpen ? "active" : ""}`} onClick={handleMenuToggle}>
