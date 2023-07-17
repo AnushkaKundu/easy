@@ -1,15 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import "./UnitTodo.css";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FaBars } from 'react-icons/fa';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FaBars } from "react-icons/fa";
 
-export default function UnitTodo ({content, colour}) {
-    const [isChecked, setIsChecked] = useState(false);
-    const handleCheckboxChange = (event) => {
-        setIsChecked(event.target.checked);
+export default function UnitTodo({ content, colour, isChecked, handleCompleteTodo, handleDeleteTodo }) {
+    const handleCheckboxChange = () => {
+        handleCompleteTodo(content);
     };
+
+    const handleTrashClick = () => {
+        handleDeleteTodo(content);
+    };
+
     return (
         <div>
             <div className={`unit-todo ${colour}`}>
@@ -21,11 +25,9 @@ export default function UnitTodo ({content, colour}) {
                     checked={isChecked}
                     onChange={handleCheckboxChange}
                 />
-                <div className="content inline">
-                    {content}
-                </div>
+                <div className="content inline">{content}</div>
                 <FaBars className="move right" />
-                <FontAwesomeIcon icon={faTrash} className="inline right trash" />
+                <FontAwesomeIcon icon={faTrash} className="inline right trash" onClick={handleTrashClick} />
             </div>
         </div>
     );

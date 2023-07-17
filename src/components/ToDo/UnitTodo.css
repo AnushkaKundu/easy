@@ -1,33 +1,42 @@
 :root {
     --light-green: #37c9a2;
-    --medium-green: #1ca782;
+    --medium-green: #25836a;
     --dark-green: #095c46;
 }
+
 .unit-todo {
     width: min(80vw, 600px);
     padding: 10px;
     box-sizing: border-box;
     margin: 15px auto;
 }
+
 .light {
     background-color: var(--light-green);
 }
+
 .medium {
     background-color: var(--medium-green);
 }
+
 .dark {
     background-color: var(--dark-green);
 }
+
 .inline {
     display: inline;
     margin: auto 8px;
 }
+
 .right {
     float: right;
 }
-.trash, .move {
+
+.trash,
+.move {
     color: #fff;
 }
+
 .checked {
     text-decoration: line-through;
 }
@@ -37,6 +46,7 @@
     color: #38bd84;
     font-size: 18px;
 }
+
 .content {
     color: white;
 }
