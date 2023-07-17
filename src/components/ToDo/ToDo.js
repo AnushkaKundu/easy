@@ -20,7 +20,7 @@ export default function ToDo({ toggleTheme }) {
         const databaseRef = firebase.database().ref("users");
         const userRef = databaseRef.child(encodedEmail);
         const todosRef = userRef.child("todos");
-        const completedTodosRef = userRef.child("completedTodos"); // Corrected reference
+        const completedTodosRef = userRef.child("completedTodos");
 
         todosRef.on("value", (snapshot) => {
             const todosData = snapshot.val();
@@ -71,13 +71,12 @@ export default function ToDo({ toggleTheme }) {
                     const childData = childSnapshot.val();
                     if (childData === todo) {
                         todosRef.child(childKey).remove();
+                        // Add the todo to completed todos list
+                        const newCompletedTodoRef = completedTodosRef.push();
+                        newCompletedTodoRef.set(todo);
                     }
                 });
             });
-
-            // Add the todo to completed todos list
-            const newCompletedTodoRef = completedTodosRef.push();
-            newCompletedTodoRef.set(todo);
         } else if (completedTodos.includes(todo)) {
             // Remove the todo from completed todos list
             completedTodosRef.once("value", (snapshot) => {
@@ -86,13 +85,12 @@ export default function ToDo({ toggleTheme }) {
                     const childData = childSnapshot.val();
                     if (childData === todo) {
                         completedTodosRef.child(childKey).remove();
+                        // Add the todo to todos list
+                        const newTodoRef = todosRef.push();
+                        newTodoRef.set(todo);
                     }
                 });
             });
-
-            // Add the todo to todos list
-            const newTodoRef = todosRef.push();
-            newTodoRef.set(todo);
         }
     };
 
@@ -100,6 +98,7 @@ export default function ToDo({ toggleTheme }) {
         const databaseRef = firebase.database().ref("users");
         const userRef = databaseRef.child(encodedEmail);
         const todosRef = userRef.child("todos");
+        const completedTodosRef = userRef.child("completedTodos");
 
         todosRef.once("value", (snapshot) => {
             snapshot.forEach((childSnapshot) => {
@@ -107,6 +106,16 @@ export default function ToDo({ toggleTheme }) {
                 const childData = childSnapshot.val();
                 if (childData === todo) {
                     todosRef.child(childKey).remove();
+                }
+            });
+        });
+
+        completedTodosRef.once("value", (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                const childKey = childSnapshot.key;
+                const childData = childSnapshot.val();
+                if (childData === todo) {
+                    completedTodosRef.child(childKey).remove();
                 }
             });
         });
