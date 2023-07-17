@@ -1,13 +1,21 @@
+:root {
+    --light-green: #37c9a2;
+    --medium-green: #25836a;
+    --dark-green: #095c46;
+}
+
 .light-theme {
     --background-color: white;
     --text-color: black;
-    --navbar-background:  #202123;
+    --navbar-background: #202123;
     --sidebar-background: #202123;
     --sidebar-links-color: lightgray;
     --box-shadow: 0px 4px 6px #20212385
 }
+
 .dark-theme {
-    --background-color: #202123;
+    /* --background-color: #202123; */
+    --background-color: black;
     --text-color: white;
     --navbar-background: lightgrey;
     --sidebar-background: lightgrey;
