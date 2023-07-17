@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import Heading from "../Login-and-SignUp/Heading";
 import RandomQuoteGenerator from "./RandomQuoteGenerator"
 import News from "./News"
+import Weather from "./Weather";
 import { useLocation } from "react-router-dom";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
@@ -54,6 +55,7 @@ export default function Homepage({ toggleTheme }) {
                 <div className="hi"></div>
                 <Heading heading={`Good ${timeOfDay} ${username}`} />
                 <RandomQuoteGenerator />
+                <Weather />
                 <News />
             </div>
         </>

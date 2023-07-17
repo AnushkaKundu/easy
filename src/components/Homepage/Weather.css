@@ -1,0 +1,190 @@
+@import "../../Theme.css";
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 60vw;
+    /* Responsive width */
+    margin: 0 auto;
+    margin-top: 60px;
+    background-color: transparent;
+    border: 6px solid var(--weather-properties);
+    border-radius: 10px;
+    backdrop-filter: blur(1.33vh);
+    /* Responsive backdrop filter */
+    /* box-shadow: 0 0 1.33vh rgba(0, 0, 0, 0.1); */
+    /* background-color: var(--light-green); */
+    background-color: var(--weather-background);
+
+    /* Responsive box shadow */
+}
+
+.weather-container h2 {
+    font-size: 2vw;
+    /* Responsive font size */
+    margin-bottom: 1.33vh;
+    /* Responsive margin */
+    color: var(--text-color);
+}
+
+.weather-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.33vh;
+    /* Responsive margin */
+}
+
+.weather-form input[type="text"] {
+    width: 100%;
+    padding: 1.33vh;
+    /* Responsive padding */
+    margin-bottom: 0.67vh;
+    /* Responsive margin */
+    border: none;
+    background-color: transparent;
+    border-radius: 10px;
+    /* Responsive border radius */
+    border: 2px solid var(--weather-properties);
+    color: var(--weather-properties);
+}
+
+.weather-form button[type="submit"] {
+    padding: 1.33vh 2vh;
+    /* Responsive padding */
+    border: none;
+    background-color: var(--weather-properties);
+    border-radius: 10px;
+    /* Responsive border radius */
+    cursor: pointer;
+    color: white;
+}
+
+.weather-data {
+    text-align: center;
+}
+
+.weather-data h2 {
+    font-size: 18px;
+    /* Responsive font size */
+    margin-bottom: 1.33vh;
+    /* Responsive margin */
+    color: var(--text-color);
+}
+
+.weather-data p {
+    font-size: 1.33vw;
+    /* Responsive font size */
+    margin-bottom: 0.67vh;
+    /* Responsive margin */
+    color: var(--background-color);
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8vw;
+    /* Responsive font size */
+    margin-bottom: 0.67vh;
+    /* Responsive margin */
+}
+
+.weather-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.33vh;
+    /* Responsive margin */
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-right: 1.33vh;
+    margin: 10px;
+    padding: 5px;
+    /* Responsive margin */
+}
+
+.info-item p {
+    margin-left: 0.67vh;
+    /* Responsive margin */
+    color: var(--weather-properties);
+    font-weight: 800;
+}
+
+
+.FiInfo {
+    font-size: 2rem;
+    color: var(--light-green);
+}
+
+@media (max-width: 768px) {
+    .weather-container {
+        max-width: 90vw;
+        /* Adjust max width for mobile devices */
+    }
+
+    .weather-container h2 {
+        font-size: 4vw;
+        /* Adjust font size for mobile devices */
+        margin-bottom: 2vw;
+        /* Adjust margin for mobile devices */
+    }
+
+    .weather-form input[type="text"] {
+        padding: 2vw;
+        /* Adjust padding for mobile devices */
+        margin-bottom: 1vw;
+        /* Adjust margin for mobile devices */
+    }
+
+    .weather-form button[type="submit"] {
+        padding: 2vw 4vw;
+        /* Adjust padding for mobile devices */
+    }
+
+    .weather-data h2 {
+        font-size: 2.67vw;
+        /* Adjust font size for mobile devices */
+        margin-bottom: 2vw;
+        /* Adjust margin for mobile devices */
+    }
+
+    .weather-data p {
+        font-size: 2.67vw;
+        /* Adjust font size for mobile devices */
+        margin-bottom: 1vw;
+        /* Adjust margin for mobile devices */
+    }
+
+    .error-message {
+        font-size: 1.6vw;
+        /* Adjust font size for mobile devices */
+        margin-bottom: 1vw;
+        /* Adjust margin for mobile devices */
+    }
+
+    .info-item {
+        margin-right: 2vw;
+        /* Adjust margin for mobile devices */
+    }
+
+    .info-item p {
+        margin-left: 1vw;
+        /* Adjust margin for mobile devices */
+    }
+}
+
+.info-item .icon {
+    font-size: 2.5rem;
+    color: var(--weather-properties);
+}

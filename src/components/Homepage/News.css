@@ -21,7 +21,7 @@ h2 {
     margin-right: 10px;
     padding: 8px 12px;
     font-size: 14px;
-    background-color: var(--light-green);
+    background-color: var(--dark-green);
     color: white;
     border: none;
     border-radius: 10px;
@@ -31,7 +31,7 @@ h2 {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    border: 1px solid var(--light-green);
+    border: 3px solid var(--light-green);
     border-radius: 10px;
     padding: 5px;
 }
