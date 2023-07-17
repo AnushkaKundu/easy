@@ -36,13 +36,13 @@ export default function Profile({ toggleTheme }) {
                     <div className="profile-picture"></div>
                     <div className="username">Welcome, {username}</div>
                 </div>
-                <div className="basic-info">
+                <div className="info">
                     <UnitInfo key="Profile picture" value="" />
                     <UnitInfo key="Username" value={username} />
                     <UnitInfo key="Birthdate" value="" />
                     <UnitInfo key="Gender" value="" />
                 </div>
-                <div className="contact-info">
+                <div className="info">
                     <UnitInfo key="Email" value="" />
                     <UnitInfo key="Phone" value="" />
                 </div>
