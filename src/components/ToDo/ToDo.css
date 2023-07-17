@@ -4,3 +4,13 @@
     display: flex;
     justify-content: center;
 }
+
+.completed {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.completed-heading {
+    margin-top: 80px;
+}
