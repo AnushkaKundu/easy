@@ -57,51 +57,49 @@ export default function ToDo({ toggleTheme }) {
         newTodoRef.set(todoValue);
     };
 
-    const handleCompleteTodo = (completedTodo) => {
+    const handleCompleteTodo = (todo) => {
         const databaseRef = firebase.database().ref("users");
         const userRef = databaseRef.child(encodedEmail);
         const todosRef = userRef.child("todos");
         const completedTodosRef = userRef.child("completedTodos");
 
-        const newCompletedTodoRef = completedTodosRef.push();
-        newCompletedTodoRef.set(completedTodo);
-
-        // Remove the completed todo from the todos list
-        todosRef.once("value", (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                if (childData === completedTodo) {
-                    todosRef.child(childKey).remove();
-                }
+        if (todos.includes(todo)) {
+            // Remove the todo from todos list
+            todosRef.once("value", (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    const childKey = childSnapshot.key;
+                    const childData = childSnapshot.val();
+                    if (childData === todo) {
+                        todosRef.child(childKey).remove();
+                    }
+                });
             });
-        });
-    };
-    const handleNotCompleteTodo = (notCompletedTodo) => {
-        const databaseRef = firebase.database().ref("users");
-        const userRef = databaseRef.child(encodedEmail);
-        const todosRef = userRef.child("todos");
-        const completedTodosRef = userRef.child("completedTodos");
 
-        const newCompletedTodoRef = completedTodosRef.push();
-        newCompletedTodoRef.set(completedTodo);
-
-        // Remove the completed todo from the todos list
-        todosRef.once("value", (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                if (childData === completedTodo) {
-                    todosRef.child(childKey).remove();
-                }
+            // Add the todo to completed todos list
+            const newCompletedTodoRef = completedTodosRef.push();
+            newCompletedTodoRef.set(todo);
+        } else if (completedTodos.includes(todo)) {
+            // Remove the todo from completed todos list
+            completedTodosRef.once("value", (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    const childKey = childSnapshot.key;
+                    const childData = childSnapshot.val();
+                    if (childData === todo) {
+                        completedTodosRef.child(childKey).remove();
+                    }
+                });
             });
-        });
+
+            // Add the todo to todos list
+            const newTodoRef = todosRef.push();
+            newTodoRef.set(todo);
+        }
     };
+
     const handleDeleteTodo = (todo) => {
         const databaseRef = firebase.database().ref("users");
         const userRef = databaseRef.child(encodedEmail);
         const todosRef = userRef.child("todos");
-        const completedTodosRef = userRef.child("completedTodos");
 
         todosRef.once("value", (snapshot) => {
             snapshot.forEach((childSnapshot) => {
@@ -109,16 +107,6 @@ export default function ToDo({ toggleTheme }) {
                 const childData = childSnapshot.val();
                 if (childData === todo) {
                     todosRef.child(childKey).remove();
-                }
-            });
-        });
-
-        completedTodosRef.once("value", (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                if (childData === todo) {
-                    completedTodosRef.child(childKey).remove();
                 }
             });
         });
@@ -146,7 +134,7 @@ export default function ToDo({ toggleTheme }) {
                     {completedTodos.map((completedTodo, index) => (
                         <UnitTodo
                             key={index}
-                            content={completedTodo} // Corrected content value
+                            content={completedTodo}
                             colour={index % 3 === 0 ? "light" : index % 3 === 1 ? "medium" : "dark"}
                             isChecked={true} // Set default checked for completed todos
                             handleCompleteTodo={handleCompleteTodo}
