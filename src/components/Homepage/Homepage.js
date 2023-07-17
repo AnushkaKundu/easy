@@ -9,6 +9,7 @@ import 'firebase/compat/database';
 export default function Homepage({ toggleTheme }) {
     const location = useLocation();
     const encodedEmail = location?.state?.encodedEmail;
+
     const [username, setUsername] = useState("");
     const [timeOfDay, setTimeOfDay] = useState("");
 

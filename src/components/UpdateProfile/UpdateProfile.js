@@ -1,12 +1,14 @@
 import React from "react";
-import { Card } from 'react-bootstrap';
+import { useLocation } from "react-router-dom";
 import "./UpdateProfile.css";
 import Navbar from "../Navbar/Navbar";
 import UnitInfo from "./UnitInfo";
-export default function profile({ toggleTheme }) {
+export default function Profile({ toggleTheme }) {
+    const location = useLocation();
+    const encodedEmail = location?.state?.encodedEmail;
     return (
         <>
-            <Navbar hb={true} toggleTheme={toggleTheme} />
+            <Navbar hb={true} toggleTheme={toggleTheme} encodedEmail={encodedEmail} />
             <div className="container">
                 <div className="top">
                     <div className="profile-picture"></div>

@@ -52,7 +52,7 @@ const HamburgerMenu = ({ encodedEmail }) => {
             <FaSignOutAlt className="link-logo" />Logout
           </div>
         </div>
-        {encodedEmail}
+        {/* {encodedEmail} */}
         <button className="close-button" onClick={handleMenuToggle}></button>
       </div>
     </div>

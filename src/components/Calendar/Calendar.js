@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Card, Nav } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
+import { Card } from "react-bootstrap";
 import Navbar from "../Navbar/Navbar";
 import "./Calendar.css";
 
 export default function Calendar({ toggleTheme }) {
+  const location = useLocation();
+  const encodedEmail = location?.state?.encodedEmail;
+
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const navigateToPreviousMonth = () => {
@@ -70,7 +74,7 @@ export default function Calendar({ toggleTheme }) {
 
   return (
     <>
-      <Navbar hb={true} toggleTheme={toggleTheme} />
+      <Navbar hb={true} toggleTheme={toggleTheme} encodedEmail={encodedEmail} />
       <div className="cal">
         <Card>
           <Card.Body>

@@ -15,7 +15,7 @@ export default function ToDo({ toggleTheme }) {
     console.log(encodedEmail)
     return (
         <>
-            <Navbar hb={true} toggleTheme={toggleTheme} />
+            <Navbar hb={true} toggleTheme={toggleTheme} encodedEmail={encodedEmail} />
             <div className="todo">
                 <Card>
                     <Heading heading={`To-Do`} />

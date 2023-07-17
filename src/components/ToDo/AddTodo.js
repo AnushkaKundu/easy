@@ -3,13 +3,13 @@ import "./AddTodo.css";
 import { FaPlus } from 'react-icons/fa';
 
 
-export default function AddTodo () {
-    const handleAdd= () => {
+export default function AddTodo() {
+    const handleAdd = () => {
         console.log("add");
     }
     return (
         <div className="add-todo">
-            <FaPlus className="inline add-symbol"/>
+            <FaPlus className="inline add-symbol" />
             <input
                 type="text"
                 placeholder="Add a to-do"
