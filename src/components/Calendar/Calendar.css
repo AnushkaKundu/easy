@@ -1,6 +1,9 @@
 .cal {
-  display: block;
+  display: flex;
   margin: 60px auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .calendar {
@@ -85,4 +88,12 @@
 .calendar-day:hover:not(.empty) {
   background-color: #1ca782;
   color: #fff;
+}
+
+.reminders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
 }

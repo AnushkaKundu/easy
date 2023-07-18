@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import Navbar from "../Navbar/Navbar";
+import Heading from "../Login-and-SignUp/Heading"
 import "./Calendar.css";
 
 export default function Calendar({ toggleTheme }) {
@@ -76,32 +77,36 @@ export default function Calendar({ toggleTheme }) {
     <>
       <Navbar hb={true} toggleTheme={toggleTheme} encodedEmail={encodedEmail} />
       <div className="cal">
+        <Heading heading="Calendar" />
+        <hr />
         <Card>
-          <Card.Body>
-            <div className="calendar">
-              <div className="calendar-header">
-                <button onClick={navigateToPreviousYear}>&#8249;</button>
-                <button onClick={navigateToPreviousMonth}>&#8249;</button>
-                <h2>{getMonthName(currentDate)}</h2>
-                <h2>{currentDate.getFullYear()}</h2>
-                <button onClick={navigateToNextMonth}>&#8250;</button>
-                <button onClick={navigateToNextYear}>&#8250;</button>
-              </div>
-              <div className="calendar-body">
-                <div className="calendar-days">
-                  <div className="day">Sun</div>
-                  <div className="day">Mon</div>
-                  <div className="day">Tue</div>
-                  <div className="day">Wed</div>
-                  <div className="day">Thu</div>
-                  <div className="day">Fri</div>
-                  <div className="day">Sat</div>
-                </div>
-                <div className="calendar-dates">{renderCalendarDays()}</div>
-              </div>
+          <div className="calendar">
+            <div className="calendar-header">
+              <button onClick={navigateToPreviousYear}>&#8249;</button>
+              <button onClick={navigateToPreviousMonth}>&#8249;</button>
+              <h2>{getMonthName(currentDate)}</h2>
+              <h2>{currentDate.getFullYear()}</h2>
+              <button onClick={navigateToNextMonth}>&#8250;</button>
+              <button onClick={navigateToNextYear}>&#8250;</button>
             </div>
-          </Card.Body>
+            <div className="calendar-body">
+              <div className="calendar-days">
+                <div className="day">Sun</div>
+                <div className="day">Mon</div>
+                <div className="day">Tue</div>
+                <div className="day">Wed</div>
+                <div className="day">Thu</div>
+                <div className="day">Fri</div>
+                <div className="day">Sat</div>
+              </div>
+              <div className="calendar-dates">{renderCalendarDays()}</div>
+            </div>
+          </div>
         </Card>
+        <div className="reminders">
+          <Heading heading="Reminders" />
+          <hr />
+        </div>
       </div>
     </>
   );
